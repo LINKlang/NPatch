@@ -52,6 +52,8 @@ namespace lspd {
     using RealpathFn = char*(*)(const char*, char*);
     using StatFn = int(*)(const char*, struct stat*);
     using Stat64Fn = int(*)(const char*, struct stat64*);
+    using FstatAtFn = int(*)(int, const char*, struct stat*, int);
+    using FstatAt64Fn = int(*)(int, const char*, struct stat64*, int);
     using StatFsFn = int(*)(const char*, struct statfs*);
     using StatxFn = int(*)(int, const char*, int, unsigned int, struct statx*);
     using CloseFn = int(*)(int);
