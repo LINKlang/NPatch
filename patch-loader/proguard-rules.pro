@@ -2,6 +2,9 @@
 -allowaccessmodification
 -renamesourcefileattribute SourceFile
 
+-keep class org.lsposed.hiddenapibypass.** { *; }
+-dontwarn org.lsposed.hiddenapibypass.**
+
 # Native code loads this entry by its original binary name and invokes onLoad().
 -keep class top.nkbe.npatch.loader.LSPApplication {
     public static void onLoad();
