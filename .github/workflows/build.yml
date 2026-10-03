@@ -59,6 +59,8 @@ jobs:
 
     - name: 設定 Android SDK
       uses: android-actions/setup-android@v3
+      with:
+        packages: 'platform-tools'
 
     - name: 設定 ninja
       uses: seanmiddleditch/gha-setup-ninja@master
