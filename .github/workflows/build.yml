@@ -29,6 +29,13 @@ jobs:
         submodules: 'recursive'
         fetch-depth: 0
 
+    - name: 檢出 NeoApk
+      uses: actions/checkout@v5
+      with:
+        repository: HSSkyBoy/NeoApk
+        ref: 37b0515fd41df2bf77e13197b9f38ef8e93f5a1e # v1.0.2
+        path: NeoApk
+
     - name: 設定快取
       uses: actions/cache@v4
       with:
@@ -83,7 +90,9 @@ jobs:
       run: echo "commit=$(echo ${{ github.sha }} | cut -c-7)" > $GITHUB_ENV
 
     - name: 使用 Gradle 構建
-      run: ./gradlew buildAll
+      run: |
+        mv NeoApk ../NeoApk
+        ./gradlew buildAll
 
     - name: 上傳 Release Artifact
       uses: actions/upload-artifact@v5
